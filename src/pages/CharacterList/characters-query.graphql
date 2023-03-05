@@ -1,0 +1,8 @@
+query getCharacters {
+    characters {
+        info {
+            count
+            pages
+        }
+    }
+}
