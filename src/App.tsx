@@ -1,33 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
+import CharacterList from './components/CharacterList'
+import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+import client from './core/apolloClient';
+
+const testData = () =>{
+  client
+  .query({
+    query: gql`
+      query getCharacters {
+        characters {
+          info {
+            count
+          }
+        }
+      }
+    `,
+  })
+  .then((result) => console.log(result));
+}
+
+console.log('-----------', testData());
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <ApolloProvider client={client}>
+      <div className="App">
+        <CharacterList />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    </ApolloProvider>
   )
 }
 
