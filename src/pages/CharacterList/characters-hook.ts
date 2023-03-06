@@ -23,7 +23,7 @@ const useCharacters = () => {
         }
     });
 
-    const characters = data?.characters?.results;
+    const characters = data?.characters?.results ?? [];
     const metadata = data?.characters?.info;
 
     return {
