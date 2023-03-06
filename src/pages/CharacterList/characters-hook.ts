@@ -14,7 +14,7 @@ const useCharacters = () => {
     const { data, loading } = useGetCharactersQuery({
         fetchPolicy: 'network-only',
         variables: {
-            page: 1,
+            page: pagination.page,
             name: name,
             status: status,
             species: species,
@@ -26,8 +26,16 @@ const useCharacters = () => {
     const characters = data?.characters?.results ?? [];
     const metadata = data?.characters?.info;
 
+    const handlePageChange = (
+        _: React.ChangeEvent<unknown>,
+        value: React.SetStateAction<number>,
+      ) => {
+        pagination.setPage(value as number);
+    };
+
     return {
-        pagination,
+        page: pagination.page,
+        pageCount: metadata?.pages || 0,
         name,
         status,
         species,
@@ -36,6 +44,7 @@ const useCharacters = () => {
         characters,
         metadata,
         loading,
+        handlePageChange,
     };
 };
 
