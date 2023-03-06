@@ -21,23 +21,23 @@ fragment CharacterOverview on Character {
 }
 
 query getCharacters(
-    $page: Int,
-    $name: String,
-    $status: String,
-    $species: String,
-    $type: String,
+    $page: Int
+    $name: String
+    $status: String
+    $species: String
+    $type: String
     $gender: String
 ) {
-    characters (
-        page: $page,
+    characters(
+        page: $page
         filter: {
-            name: $name,
-            status: $status,
-            species: $species,
-            type: $type,
+            name: $name
+            status: $status
+            species: $species
+            type: $type
             gender: $gender
         }
-    ){
+    ) {
         info {
             ...ShortInfo
         }

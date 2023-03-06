@@ -98,6 +98,6 @@ const COLORS = {
     scrollBarBoxShadowColor: 'rgba(255, 255, 255, .5)',
     lightVinyl: '#C2E2F9',
     scoreDisabled: '#C5C5C5',
-}
+};
 
 export default COLORS;

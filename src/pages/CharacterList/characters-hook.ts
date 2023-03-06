@@ -19,8 +19,8 @@ const useCharacters = () => {
             status: status,
             species: species,
             type: type,
-            gender: gender
-        }
+            gender: gender,
+        },
     });
 
     const characters = data?.characters?.results ?? [];
@@ -28,8 +28,8 @@ const useCharacters = () => {
 
     const handlePageChange = (
         _: React.ChangeEvent<unknown>,
-        value: React.SetStateAction<number>,
-      ) => {
+        value: React.SetStateAction<number>
+    ) => {
         pagination.setPage(value as number);
     };
 

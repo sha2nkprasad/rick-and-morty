@@ -6,18 +6,19 @@ import CharacterDetails from './CharacterDetails';
 import CharacterList from './CharacterList';
 
 const AppRouter = () => {
-
-
     return (
         <Router>
             <QueryParamProvider adapter={ReactRouter6Adapter}>
                 <Routes>
                     <Route path="/" element={<CharacterList />} />
-                    <Route path="/characters/:id" element={<CharacterDetails />} />
+                    <Route
+                        path="/characters/:id"
+                        element={<CharacterDetails />}
+                    />
                 </Routes>
             </QueryParamProvider>
         </Router>
-    )
+    );
 };
 
 export default AppRouter;

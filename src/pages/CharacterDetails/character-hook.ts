@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
 import { StringParam, useQueryParam } from 'use-query-params';
-import { useGetCharacterQuery, useGetCharactersQuery } from '../../generated/graphql';
+import {
+    useGetCharacterQuery,
+    useGetCharactersQuery,
+} from '../../generated/graphql';
 import usePagination from '../../utils/usePagination';
 
 // interface RouteProp {
@@ -15,10 +18,10 @@ const useCharacter = () => {
         fetchPolicy: 'network-only',
         variables: {
             id: id || '',
-        }
+        },
     });
 
-    const character = data?.character
+    const character = data?.character;
 
     return {
         character,

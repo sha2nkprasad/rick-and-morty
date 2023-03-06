@@ -9,18 +9,18 @@ import { CardActionArea } from '@mui/material';
 import { toSingleReadableFormat } from '../../utils/dateFormat';
 
 type Props = {
-    id: string,
-    imageURL: string,
-    name: string,
-    status: string,
-    species: string,
-    type: string,
-    gender: string,
-    origin: string,
-    location: string,
-    created: string,
-    handleAction?: Function,
-}
+    id: string;
+    imageURL: string;
+    name: string;
+    status: string;
+    species: string;
+    type: string;
+    gender: string;
+    origin: string;
+    location: string;
+    created: string;
+    handleAction?: Function;
+};
 
 const useStyles = makeStyles(() => ({
     content: {
@@ -41,13 +41,15 @@ const CharacterCard = ({
     origin,
     location,
     created,
-    handleAction
-} : Props) => {
+    handleAction,
+}: Props) => {
     const classes = useStyles();
 
     return (
         <Card>
-            <CardActionArea onClick={()=> !!id && handleAction && handleAction(id)}>
+            <CardActionArea
+                onClick={() => !!id && handleAction && handleAction(id)}
+            >
                 <CardMedia
                     component="img"
                     height="500"
@@ -58,7 +60,11 @@ const CharacterCard = ({
                     <Typography gutterBottom variant="h5" component="div">
                         {name}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary" component="div">
+                    <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        component="div"
+                    >
                         <div className={classes.content}>
                             <div>
                                 Species: <strong>{species}</strong>
@@ -79,7 +85,10 @@ const CharacterCard = ({
                                 Status: <strong>{status}</strong>
                             </div>
                             <div>
-                                Created: <strong>{toSingleReadableFormat(created)}</strong>
+                                Created:{' '}
+                                <strong>
+                                    {toSingleReadableFormat(created)}
+                                </strong>
                             </div>
                         </div>
                     </Typography>
