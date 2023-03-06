@@ -1,6 +1,8 @@
 import React from "react";
-import { Avatar, Grid, List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
+import { useNavigate } from 'react-router-dom';
+import { Grid, Typography } from "@mui/material";
 import useCharacters from "./characters-hook";
+import CharacterCard from "../../components/Card";
 
 const CharacterList = () => {
 
@@ -10,28 +12,39 @@ const CharacterList = () => {
         characters,
         metadata
     } = useCharacters();
+    const navigate = useNavigate();
+
+    const handleRedirection = (id: string) => {
+        navigate(`/characters/${id}`);
+    };
 
     return (
-        <Grid container>
-            <Grid item xs={12} md={6}>
-               <List>
-                 {characters?.map((character) => {
+        <div>
+            <Typography gutterBottom variant="h3" component="div" align="center">
+                The Rick and Morty App
+            </Typography>
+            <Grid container m={4}>
+            {characters?.map((character) => {
                     return (
-                        <ListItem>
-                            <ListItemAvatar>
-                                <Avatar>
-                                </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText
-                                primary={character?.name}
-                                secondary={character?.gender}
+                        <Grid item xs={6} md={3} mb={2} key={character?.id}>
+                            <CharacterCard
+                                id={character?.id || ''}
+                                imageURL={character?.image || ''}
+                                name={character?.name || ''}
+                                status={character?.status || ''}
+                                species={character?.species || ''}
+                                type={character?.type || ''}
+                                gender={character?.gender || ''}
+                                origin={character?.origin?.name || ''}
+                                location={character?.location?.name || ''}
+                                created={character?.created || ''}
+                                handleAction={handleRedirection}
                             />
-                        </ListItem>
+                        </Grid>
                     )
                  })}
-               </List>
-            </Grid>
         </Grid>
+        </div>
     );
 };
 
