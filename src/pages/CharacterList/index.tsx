@@ -1,16 +1,16 @@
 import { Avatar, Grid, List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 import React from "react";
 import { useGetCharactersQuery } from "../../generated/graphql";
+import useCharacters from "./characters-hook";
 
 const items = [1,2,3,4];
 
 const CharacterList = () => {
 
-    const { data, loading } = useGetCharactersQuery({
-        fetchPolicy: 'network-only',
-    });
-    console.log('----loading :', loading);
-    console.log('----data :', data);
+    const {
+        name,
+        species
+    } = useCharacters();
 
     return (
         <Grid container>

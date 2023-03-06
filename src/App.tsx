@@ -1,32 +1,15 @@
 import './App.css'
-import CharacterList from './components/CharacterList'
+import CharacterList from './pages/CharacterList'
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
 import client from './core/apolloClient';
-
-const testData = () =>{
-  client
-  .query({
-    query: gql`
-      query getCharacters {
-        characters {
-          info {
-            count
-          }
-        }
-      }
-    `,
-  })
-  .then((result) => console.log(result));
-}
-
-console.log('-----------', testData());
+import AppRouter from './pages/AppRouter';
 
 function App() {
 
   return (
     <ApolloProvider client={client}>
       <div className="App">
-        <CharacterList />
+        <AppRouter />
       </div>
     </ApolloProvider>
   )
