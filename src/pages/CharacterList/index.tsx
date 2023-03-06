@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Grid, Typography } from "@mui/material";
 import useCharacters from "./characters-hook";
 import CharacterCard from "../../components/Card";
+import Layout from "../../components/Layout";
 
 const CharacterList = () => {
 
@@ -19,10 +20,7 @@ const CharacterList = () => {
     };
 
     return (
-        <div>
-            <Typography gutterBottom variant="h3" component="div" align="center">
-                The Rick and Morty App
-            </Typography>
+        <Layout>
             <Grid container m={4}>
             {characters?.map((character) => {
                     return (
@@ -43,8 +41,8 @@ const CharacterList = () => {
                         </Grid>
                     )
                  })}
-        </Grid>
-        </div>
+            </Grid>
+        </Layout>
     );
 };
 

@@ -1,4 +1,5 @@
 import React from "react";
+import Layout from "../../components/Layout";
 import useCharacter from "./character-hook";
 
 const CharacterDetails = () => {
@@ -6,10 +7,10 @@ const CharacterDetails = () => {
         character
     } = useCharacter();
     return (
-        <div>
+        <Layout>
             <h1>Details Page :</h1>
             <h2>{character?.name}</h2>
-        </div>
+        </Layout>
     );
 };
 
