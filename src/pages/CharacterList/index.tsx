@@ -1,22 +1,21 @@
-import { Avatar, Grid, List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 import React from "react";
-import { useGetCharactersQuery } from "../../generated/graphql";
+import { Avatar, Grid, List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 import useCharacters from "./characters-hook";
-
-const items = [1,2,3,4];
 
 const CharacterList = () => {
 
     const {
         name,
-        species
+        species,
+        characters,
+        metadata
     } = useCharacters();
 
     return (
         <Grid container>
             <Grid item xs={12} md={6}>
                <List>
-                 {items.map(() => {
+                 {characters?.map((character) => {
                     return (
                         <ListItem>
                             <ListItemAvatar>
@@ -24,12 +23,12 @@ const CharacterList = () => {
                                 </Avatar>
                             </ListItemAvatar>
                             <ListItemText
-                                primary="Single-line item"
-                                secondary="Secondary text"
+                                primary={character?.name}
+                                secondary={character?.gender}
                             />
                         </ListItem>
                     )
-                 })};
+                 })}
                </List>
             </Grid>
         </Grid>

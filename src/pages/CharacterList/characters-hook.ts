@@ -23,8 +23,8 @@ const useCharacters = () => {
         }
     });
 
-    console.log('---- loading :', loading);
-    console.log('---- data :', data);
+    const characters = data?.characters?.results;
+    const metadata = data?.characters?.info;
 
     return {
         pagination,
@@ -33,6 +33,9 @@ const useCharacters = () => {
         species,
         type,
         gender,
+        characters,
+        metadata,
+        loading,
     };
 };
 

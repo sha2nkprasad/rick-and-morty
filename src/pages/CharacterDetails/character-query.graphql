@@ -1,0 +1,41 @@
+fragment LocationDeatils on Location {
+    id
+    name
+    type
+    dimension
+    created
+}
+
+fragment EpisodeDetails on Episode {
+    id
+    name
+    air_date
+    episode
+    created
+}
+
+fragment CharacterDetails on Character {
+    id
+    name
+    status
+    species
+    type
+    gender
+    origin {
+        ...LocationDeatils
+    }
+    location {
+        ...LocationDeatils
+    }
+    image
+    episode {
+        ...EpisodeDetails
+    }
+    created
+}
+
+query getCharacter($id: ID!) {
+    character (id: $id) {
+        ...CharacterDetails
+    }
+}

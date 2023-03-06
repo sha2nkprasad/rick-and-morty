@@ -3,6 +3,23 @@ fragment ShortInfo on Info {
     count
 }
 
+fragment CharacterOverview on Character {
+    id
+    name
+    status
+    species
+    type
+    gender
+    origin {
+        name
+    }
+    location {
+        name
+    }
+    image
+    created
+}
+
 query getCharacters(
     $page: Int,
     $name: String,
@@ -23,6 +40,9 @@ query getCharacters(
     ){
         info {
             ...ShortInfo
+        }
+        results {
+            ...CharacterOverview
         }
     }
 }
