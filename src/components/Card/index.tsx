@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
 import { CardActionArea } from '@mui/material';
+import { toSingleReadableFormat } from '../../utils/dateFormat';
 
 type Props = {
     id: string,
@@ -18,7 +19,7 @@ type Props = {
     origin: string,
     location: string,
     created: string,
-    handleAction: Function,
+    handleAction?: Function,
 }
 
 const useStyles = makeStyles(() => ({
@@ -45,11 +46,11 @@ const CharacterCard = ({
     const classes = useStyles();
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
-            <CardActionArea onClick={()=> !!id && handleAction(id)}>
+        <Card>
+            <CardActionArea onClick={()=> !!id && handleAction && handleAction(id)}>
                 <CardMedia
                     component="img"
-                    height="400"
+                    height="500"
                     image={imageURL}
                     alt={name}
                 />
@@ -78,7 +79,7 @@ const CharacterCard = ({
                                 Status: <strong>{status}</strong>
                             </div>
                             <div>
-                                Created: <strong>{created}</strong>
+                                Created: <strong>{toSingleReadableFormat(created)}</strong>
                             </div>
                         </div>
                     </Typography>
