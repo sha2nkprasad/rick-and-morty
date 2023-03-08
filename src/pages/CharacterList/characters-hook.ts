@@ -33,6 +33,15 @@ const useCharacters = () => {
         pagination.setPage(value as number);
     };
 
+    const onSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+        pagination.setPage(1);
+        if (event.target.value === '') {
+            setName('');
+        } else {
+            setName(event.target.value);
+        }
+    };
+
     return {
         page: pagination.page,
         pageCount: metadata?.pages || 0,
@@ -45,6 +54,7 @@ const useCharacters = () => {
         metadata,
         loading,
         handlePageChange,
+        onSearch,
     };
 };
 
