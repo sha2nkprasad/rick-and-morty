@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Box, CardActionArea } from '@mui/material';
+import { Box } from '@mui/material';
 import { EpisodeDetailsFragment } from '../../generated/graphql';
 
 type Props = {
@@ -47,9 +47,6 @@ const EpisodeCard = ({ episodes }: Props) => {
                     );
                 })}
             </CardContent>
-            <CardActionArea>
-                <Button size="small">Implement View All</Button>
-            </CardActionArea>
         </Card>
     );
 };
