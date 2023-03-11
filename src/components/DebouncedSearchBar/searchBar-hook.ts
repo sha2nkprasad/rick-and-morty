@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import debounce from '../../utils/debounce';
 
 interface Props {

@@ -1,6 +1,5 @@
-import React from 'react';
 import InfoIcon from '@mui/icons-material/Info';
-import { Box, TextField } from '@mui/material';
+import { Box } from '@mui/material';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
@@ -8,10 +7,10 @@ import IconButton from '@mui/material/IconButton';
 import Pagination from '@mui/material/Pagination';
 import Typography from '@material-ui/core/Typography';
 import { useNavigate } from 'react-router-dom';
-import useCharacters from './characters-hook';
 import Layout from '../../components/Layout';
 import Backdrop from '../../components/Backdrop';
 import DebouncedSearchBar from '../../components/DebouncedSearchBar';
+import useCharacters from './characters-hook';
 
 const CharacterList = () => {
     const {

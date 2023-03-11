@@ -4,7 +4,6 @@ import {
     ApolloLink,
     ServerError,
     HttpLink,
-    gql,
 } from '@apollo/client';
 import { onError } from '@apollo/client/link/error';
 

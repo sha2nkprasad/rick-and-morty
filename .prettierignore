@@ -6,9 +6,14 @@ coverage
 *.html
 *.json
 *.yml
+*.md
 
 **/.git
 **/.svn
 **/.hg
 **/node_modules
 **/vite.config.ts
+**/.eslintrc
+
+# Ignore graphQL generated file
+**/generated/graphql.ts
