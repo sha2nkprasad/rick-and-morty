@@ -1,4 +1,3 @@
-import { PaletteType } from '@material-ui/core';
 import COLORS from './colors';
 
 export const typography = {
