@@ -6,10 +6,12 @@
   "scripts": {
     "generate:graphql": "graphql-codegen -w",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "yarn generate && tsc && vite build",
     "preview": "vite preview",
     "generate": "graphql-codegen --config codegen.yml",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "start": "yarn generate && yarn dev",
+    "prettify": "yarn prettier --write ."
   },
   "dependencies": {
     "@apollo/client": "^3.7.9",
